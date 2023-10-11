@@ -1,13 +1,12 @@
-eriner
+c3prompt
 ======
 
-A fork of the Powerline-inspired [agnoster] theme.
+A fork of the Powerline-inspired [eriner](https://github.com/zimfw/eriner) theme.
 
-The aim of this theme is to only show you *relevant* information. Like most
-prompts, it will only show git information when in a git working directory.
-However, it goes a step further: everything from the current user and hostname
-to whether the last call exited with an error to whether background jobs are
-running in this shell will all be displayed automatically when appropriate.
+
+The aim of this theme is to improve my own experience showing what I need. 
+I have used it for many years the eriner's theme and I wanted to explore how it works internally. 
+Also see the different configurations, especially with the git information.
 
 <img width="706" src="https://zimfw.github.io/images/prompts/eriner@2.png">
 
