@@ -3,7 +3,6 @@ c3prompt
 
 A fork of the Powerline-inspired [eriner](https://github.com/zimfw/eriner) theme.
 
-
 The aim of this theme is to improve my own experience showing what I need. 
 I have used it for many years the eriner's theme and I wanted to explore how it works internally. 
 Also see the different configurations, especially with the git information.
