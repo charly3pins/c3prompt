@@ -43,7 +43,6 @@ _prompt_end() {
 # spawned shell? Python venv activated? Who and where am I (user@hostname)?
 _prompt_status() {
   local segment=
-  if (( RETVAL )) segment+=' %F{red}✘'
   if (( EUID == 0 )) segment+=' %F{yellow}⚡'
   if (( $(jobs -l | wc -l) )) segment+=' %F{cyan}⚙'
   if (( RANGER_LEVEL )) segment+=' %F{cyan}r'
@@ -87,12 +86,18 @@ zstyle ':zim:prompt-pwd:fish-style' dir-length 1
 
 typeset -gA git_info
 if (( ${+functions[git-info]} )); then
+  zstyle ':zim:git-info' verbose yes
   zstyle ':zim:git-info:branch' format ' %b'
-  zstyle ':zim:git-info:commit' format '➦ %c'
   zstyle ':zim:git-info:action' format ' (%s)'
+  zstyle ':zim:git-info:behind' format '⇣%B'
+  zstyle ':zim:git-info:ahead' format '⇡%A'
+  zstyle ':zim:git-info:indexed' format '+%i'
+  zstyle ':zim:git-info:unindexed' format '!%I'
+  zstyle ':zim:git-info:stashed' format '*%S'
+  zstyle ':zim:git-info:untracked' format '?%u'
   zstyle ':zim:git-info:dirty' format ' ±'
   zstyle ':zim:git-info:keys' format \
-      'prompt' '%b%c%s' \
+      'prompt' '%b %s%B%A%i%I%S%u' \
       'dirty' '%D'
 
   autoload -Uz add-zsh-hook && add-zsh-hook precmd git-info
